@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NiBO Admin - Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/admin.css">
+</head>
+<body class="admin-body">
+    <!-- Login Form -->
+    <div id="loginForm" class="admin-form fade-in">
+        <div class="logo">
+            <img src="images/logo.svg" alt="NiBO Logo" width="120" height="40">
+        </div>
+        <h2>Admin Login</h2>
+        <form id="adminLogin">
+            <div class="form-group">
+                <label for="username"><i class="fas fa-user"></i> Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+            </div>
+            <div class="form-group">
+                <label for="password"><i class="fas fa-lock"></i> Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+            <button type="submit" class="glow-button">Login <i class="fas fa-sign-in-alt"></i></button>
+        </form>
+    </div>
+
+    <!-- Admin Dashboard (hidden by default) -->
+    <div id="adminDashboard" class="admin-dashboard fade-in" style="display: none;">
+        <nav class="admin-nav">
+            <div class="logo">
+                <img src="images/logo.svg" alt="NiBO Logo" width="120" height="40">
+            </div>
+            <button id="logoutBtn" class="glow-button"><i class="fas fa-sign-out-alt"></i> Logout</button>
+        </nav>
+        
+        <div class="dashboard-content">
+            <!-- Dashboard Overview -->
+            <div class="admin-section fade-in">
+                <h2><i class="fas fa-tachometer-alt"></i> Dashboard</h2>
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <i class="fas fa-tshirt"></i>
+                        <h3>Total Products</h3>
+                        <p id="totalProducts">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h3>Total Orders</h3>
+                        <p id="totalOrders">0</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Add Product Form -->
+            <div class="admin-section fade-in">
+                <h2><i class="fas fa-plus-circle"></i> Add New Product</h2>
+                <form id="addProductForm">
+                    <div class="form-group">
+                        <label for="productName">Product Name</label>
+                        <input type="text" id="productName" name="productName" placeholder="Enter product name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="productPrice">Price (৳)</label>
+                        <input type="number" id="productPrice" name="productPrice" placeholder="Enter price in Taka" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="productDescription">Description (Optional)</label>
+                        <textarea id="productDescription" name="productDescription" placeholder="Enter product description"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="productImage">Product Image</label>
+                        <input type="file" id="productImage" name="productImage" accept="image/*" required>
+                    </div>
+                    <div class="form-buttons">
+                        <button type="submit" class="glow-button">Add Product <i class="fas fa-plus"></i></button>
+                        <button type="button" id="resetFormBtn" class="glow-button secondary-button">Reset <i class="fas fa-undo"></i></button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Product Management -->
+            <div class="admin-section fade-in">
+                <h2><i class="fas fa-list"></i> Manage Products</h2>
+                <div id="productList" class="product-management-grid">
+                    <!-- Products will be dynamically loaded here -->
+                </div>
+            </div>
+
+            <!-- Order Management -->
+            <div class="admin-section fade-in">
+                <h2><i class="fas fa-shopping-bag"></i> Recent Orders</h2>
+                <div id="orderList">
+                    <!-- Orders will be dynamically loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>
